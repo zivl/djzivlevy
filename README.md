@@ -48,7 +48,7 @@ curl -o src/assets/videos/<id>.jpg https://i.ytimg.com/vi/<id>/hqdefault.jpg
 
 ## SEO
 
-- One canonical host, `https://djzivlevy.com`. `www.` and `iam.` 308-redirect to it with the path kept (`vercel.json`), so old `iam.djzivlevy.com/epk` links still work.
+- One canonical host, `https://djzivlevy.com`. `www.` 308-redirects to it with the path kept (`vercel.json`).
 - Each page in each language has a unique title and description, a self-referencing canonical, `hreflang` links for all 5 languages plus `x-default`, Open Graph/Twitter cards and a sitemap with alternates (`/sitemap-index.xml`).
 - JSON-LD `@graph` per page: `WebSite`, `ProfilePage`/`WebPage`, `MusicGroup`+`Person` (with `sameAs` to every profile), `VideoObject` for each set, `MusicEvent` for upcoming gigs, `FAQPage` and `BreadcrumbList` on the EPK. Builders are in `src/lib/jsonld.ts`.
 - Performance: static HTML, self-hosted fonts, AVIF/WebP responsive images, and YouTube and Spotify players behind click-to-load previews, so no third-party JS runs on page load.
@@ -68,16 +68,16 @@ curl -o src/assets/videos/<id>.jpg https://i.ytimg.com/vi/<id>/hqdefault.jpg
 ## Launch checklist (moving off Wix)
 
 1. **Vercel:** import this GitHub repo (Astro is detected automatically) and check the `*.vercel.app` preview. Then go to Project → Analytics and enable **Web Analytics**, and Project → Speed Insights and enable **Speed Insights**.
-2. **Vercel → Settings → Domains:** add `djzivlevy.com`, `www.djzivlevy.com` and `iam.djzivlevy.com`.
+2. **Vercel → Settings → Domains:** add `djzivlevy.com` and `www.djzivlevy.com`.
 3. **Wix → Domains → djzivlevy.com:**
    - Disconnect the domain from the Wix site. It stays registered at Wix.
-   - Open **Manage DNS records** and set the records exactly as Vercel shows them: apex `A` record, plus `CNAME` for `www` and `iam`.
+   - Open **Manage DNS records** and set the records exactly as Vercel shows them: apex `A` record, plus `CNAME` for `www`.
    - Remove the old Wix A/CNAME records.
-4. Wait for Vercel to show all three domains as valid with SSL issued. Then check:
+4. Wait for Vercel to show both domains as valid with SSL issued. Then check:
 
    ```bash
    curl -sI https://djzivlevy.com | head -1                 # 200
-   curl -sI https://iam.djzivlevy.com/epk | grep -i location  # https://djzivlevy.com/epk
+   curl -sI https://www.djzivlevy.com/epk | grep -i location  # https://djzivlevy.com/epk
    curl -s -H "Accept: text/markdown" https://djzivlevy.com/epk | head -3
    ```
 
