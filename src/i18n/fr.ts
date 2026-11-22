@@ -53,7 +53,7 @@ export const fr: Dict = {
     note: 'Remarque : pour les sets intégrant du mixage IA en direct, une connexion Ethernet directe ou un Wi-Fi dédié haut débit est nécessaire.',
   },
   video: { play: 'Lire', watchOn: 'Voir sur YouTube' },
-  embed: { load: 'Charger le lecteur', notice: 'Charge le lecteur {platform}. {platform} peut déposer des cookies.' },
+  embed: { load: 'Charger le lecteur', notice: 'Charge le lecteur {platform}. {platform} peut déposer des cookies.', videoNotice: 'Les vidéos sont chargées depuis YouTube (mode de confidentialité renforcé) uniquement lorsque vous cliquez dessus. YouTube peut alors déposer des cookies.' },
   music: { listenOn: 'Écouter sur' },
   gigs: { tickets: 'Billets', calendar: 'Ajouter toutes les dates à votre agenda' },
   gallery: {
@@ -82,7 +82,6 @@ export const fr: Dict = {
   },
   nav: { links: 'Liens', language: 'Langue', skip: 'Aller au contenu', home: 'Accueil', newTab: '(s’ouvre dans un nouvel onglet)', social: 'Réseaux sociaux' },
   footer: {
-    policies: 'En utilisant ce site, vous acceptez les politiques suivantes :',
     terms: 'Conditions d’utilisation',
     privacy: 'Politique de confidentialité',
     accessibility: 'Déclaration d’accessibilité',

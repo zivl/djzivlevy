@@ -85,4 +85,28 @@ const { path, title, description } = Astro.props;
   .prose :global(a) {
     color: var(--text);
   }
+
+  /* block + overflow so wide tables scroll on their own instead of widening the page */
+  .prose :global(table) {
+    display: block;
+    overflow-x: auto;
+    margin: 0 0 16px;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+    overflow-wrap: normal;
+  }
+
+  .prose :global(th),
+  .prose :global(td) {
+    min-width: 12rem;
+    padding: 10px 12px;
+    border: 1px solid var(--line);
+    text-align: start;
+    vertical-align: top;
+  }
+
+  .prose :global(th) {
+    color: var(--text);
+    background: rgb(255 255 255 / 0.04);
+  }
 </style>

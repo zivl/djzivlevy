@@ -17,7 +17,6 @@ const englishNote = lang === 'en' ? '' : ` ${d.footer.englishOnly}`;
 <footer class="footer">
   {path && <LanguageSwitcher lang={lang} path={path} />}
   <p>
-    {d.footer.policies}{' '}
     <a href="/terms" hreflang="en">{d.footer.terms}{englishNote}</a>{' · '}
     <a href="/privacy" hreflang="en">{d.footer.privacy}{englishNote}</a>
   </p>

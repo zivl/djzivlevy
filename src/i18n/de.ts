@@ -53,7 +53,7 @@ export const de: Dict = {
     note: 'Hinweis: Für Sets mit Live-KI-Mixing wird ein direkter Ethernet-Anschluss oder ein schnelles, dediziertes WLAN benötigt.',
   },
   video: { play: 'Abspielen', watchOn: 'Auf YouTube ansehen' },
-  embed: { load: 'Player laden', notice: 'Lädt den {platform}-Player. {platform} kann dabei Cookies setzen.' },
+  embed: { load: 'Player laden', notice: 'Lädt den {platform}-Player. {platform} kann dabei Cookies setzen.', videoNotice: 'Videos werden erst beim Anklicken von YouTube (erweiterter Datenschutzmodus) geladen. YouTube kann dann Cookies setzen.' },
   music: { listenOn: 'Hören auf' },
   gigs: { tickets: 'Tickets', calendar: 'Alle Gigs im Kalender abonnieren' },
   gallery: {
@@ -82,7 +82,6 @@ export const de: Dict = {
   },
   nav: { links: 'Links', language: 'Sprache', skip: 'Zum Inhalt springen', home: 'Startseite', newTab: '(öffnet in neuem Tab)', social: 'Soziale Netzwerke' },
   footer: {
-    policies: 'Mit der Nutzung dieser Website stimmst du den folgenden Richtlinien zu:',
     terms: 'Nutzungsbedingungen',
     privacy: 'Datenschutzerklärung',
     accessibility: 'Erklärung zur Barrierefreiheit',

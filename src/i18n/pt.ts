@@ -53,7 +53,7 @@ export const pt: Dict = {
     note: 'Observação: para sets com mixagem ao vivo assistida por IA, é necessário um cabo de rede direto ou Wi-Fi dedicado de alta velocidade.',
   },
   video: { play: 'Reproduzir', watchOn: 'Assistir no YouTube' },
-  embed: { load: 'Carregar player', notice: 'Carrega o player do {platform}. O {platform} pode usar cookies.' },
+  embed: { load: 'Carregar player', notice: 'Carrega o player do {platform}. O {platform} pode usar cookies.', videoNotice: 'Os vídeos são carregados do YouTube (modo de privacidade aprimorada) apenas quando você clica neles. O YouTube pode então definir cookies.' },
   music: { listenOn: 'Ouvir no' },
   gigs: { tickets: 'Ingressos', calendar: 'Adicionar todas as datas à sua agenda' },
   gallery: {
@@ -82,7 +82,6 @@ export const pt: Dict = {
   },
   nav: { links: 'Links', language: 'Idioma', skip: 'Pular para o conteúdo', home: 'Início', newTab: '(abre em uma nova aba)', social: 'Redes sociais' },
   footer: {
-    policies: 'Ao usar este site, você concorda com as seguintes políticas:',
     terms: 'Termos de uso',
     privacy: 'Política de privacidade',
     accessibility: 'Declaração de acessibilidade',
