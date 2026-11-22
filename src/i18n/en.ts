@@ -54,7 +54,7 @@ export const en = {
     note: 'Note: For sets utilizing live AI-mixing components, a direct ethernet line or high-speed dedicated WiFi is required.',
   },
   video: { play: 'Play', watchOn: 'Watch on YouTube' },
-  embed: { load: 'Load player', notice: 'Loads the {platform} player. {platform} may set cookies.' },
+  embed: { load: 'Load player', notice: 'Loads the {platform} player. {platform} may set cookies.', videoNotice: 'Videos load from YouTube (privacy-enhanced mode) only when you click them. YouTube may then set cookies.' },
   music: { listenOn: 'Listen on' },
   gigs: { tickets: 'Tickets', calendar: 'Add all gigs to your calendar' },
   gallery: {
@@ -83,7 +83,6 @@ export const en = {
   },
   nav: { links: 'Links', language: 'Language', skip: 'Skip to content', home: 'Home', newTab: '(opens in a new tab)', social: 'Social links' },
   footer: {
-    policies: 'You acknowledge that you have read and agreed to the following policies:',
     terms: 'Terms of Use',
     privacy: 'Privacy Policy',
     accessibility: 'Accessibility statement',

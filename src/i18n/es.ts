@@ -53,7 +53,7 @@ export const es: Dict = {
     note: 'Nota: para sets con mezcla en vivo asistida por IA se necesita una conexión Ethernet directa o Wi-Fi dedicado de alta velocidad.',
   },
   video: { play: 'Reproducir', watchOn: 'Ver en YouTube' },
-  embed: { load: 'Cargar reproductor', notice: 'Carga el reproductor de {platform}. {platform} puede usar cookies.' },
+  embed: { load: 'Cargar reproductor', notice: 'Carga el reproductor de {platform}. {platform} puede usar cookies.', videoNotice: 'Los vídeos se cargan desde YouTube (modo de privacidad mejorada) solo cuando haces clic en ellos. YouTube puede entonces instalar cookies.' },
   music: { listenOn: 'Escuchar en' },
   gigs: { tickets: 'Entradas', calendar: 'Agregar todas las fechas a tu calendario' },
   gallery: {
@@ -82,7 +82,6 @@ export const es: Dict = {
   },
   nav: { links: 'Enlaces', language: 'Idioma', skip: 'Ir al contenido', home: 'Inicio', newTab: '(se abre en una pestaña nueva)', social: 'Redes sociales' },
   footer: {
-    policies: 'Al usar este sitio aceptas las siguientes políticas:',
     terms: 'Términos de uso',
     privacy: 'Política de privacidad',
     accessibility: 'Declaración de accesibilidad',

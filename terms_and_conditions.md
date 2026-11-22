@@ -71,7 +71,7 @@ The Site contains links to other websites and embedded content from third partie
 
 ## 5. PRIVACY
 
-Our [Privacy Notice](https://djzivlevy.com/privacy) explains how we handle information when you use the Site, and it forms part of these Legal Terms. The Site is hosted by Vercel Inc., and third-party content you load through the Site (such as YouTube or Spotify players) is subject to the terms of the platform that provides it.
+Our [Privacy Notice](https://djzivlevy.com/privacy) explains how we handle personal information when you use the Site. It is a separate notice provided for your information: it is not part of these Legal Terms, and using the Site does not mean you consent to anything in it. The Site is hosted by Vercel Inc., and third-party content you load through the Site (such as YouTube or Spotify players) is subject to the terms of the platform that provides it.
 
 ## 6. CHANGES AND AVAILABILITY
 
