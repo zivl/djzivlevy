@@ -43,6 +43,7 @@ const show = !(hideWhenEmpty && upcoming.length === 0);
               <a class="btn tickets" href={g.ticketUrl} target="_blank" rel="noopener">
                 <Icon name="ticket" />
                 {d.gigs.tickets}
+                <span class="visually-hidden"> {d.nav.newTab}</span>
               </a>
             )}
           </li>

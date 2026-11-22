@@ -18,10 +18,12 @@ const d = t(lang);
     <a class="btn btn-primary" href={profile.contact.whatsappUrl} target="_blank" rel="noopener">
       <Icon name="whatsapp" />
       {d.booking.whatsapp}
+      <span class="visually-hidden"> {d.nav.newTab}</span>
     </a>
     <a class="btn" href={profile.contact.instagramDmUrl} target="_blank" rel="noopener">
       <Icon name="instagram" />
       {d.booking.instagram}
+      <span class="visually-hidden"> {d.nav.newTab}</span>
     </a>
     <a class="btn" href={`mailto:${profile.contact.email}`}>
       <Icon name="email" />

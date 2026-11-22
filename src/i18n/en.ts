@@ -81,11 +81,12 @@ export const en = {
     instagram: 'DM me on Instagram',
     email: 'Email',
   },
-  nav: { links: 'Links', language: 'Language', skip: 'Skip to content', home: 'Home' },
+  nav: { links: 'Links', language: 'Language', skip: 'Skip to content', home: 'Home', newTab: '(opens in a new tab)', social: 'Social links' },
   footer: {
     policies: 'You acknowledge that you have read and agreed to the following policies:',
     terms: 'Terms of Use',
     privacy: 'Privacy Policy',
+    accessibility: 'Accessibility statement',
     englishOnly: '(English)',
   },
   faq: [

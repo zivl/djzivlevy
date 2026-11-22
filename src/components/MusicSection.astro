@@ -53,6 +53,7 @@ const platforms = allPlatforms.filter((p) => p.url !== '');
             <Icon name={p.icon} />
             <span class="visually-hidden">{d.music.listenOn}{' '}</span>
             <span>{p.label}</span>
+            <span class="visually-hidden"> {d.nav.newTab}</span>
           </a>
         </li>
       ))

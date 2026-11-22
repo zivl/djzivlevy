@@ -209,6 +209,7 @@ export function llmsTxt(): string {
     '',
     `- [Terms of Use](${absoluteUrl('/terms.md')})`,
     `- [Privacy Policy](${absoluteUrl('/privacy.md')})`,
+    `- [Accessibility Statement](${absoluteUrl('/accessibility.md')})`,
     '',
   );
 }

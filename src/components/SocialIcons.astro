@@ -1,13 +1,21 @@
 ---
 import { socials } from '../data/socials';
+import { t, type Locale } from '../i18n/utils';
 import Icon from './Icon.astro';
+
+interface Props {
+  lang: Locale;
+}
+
+const { lang } = Astro.props;
+const d = t(lang);
 ---
 
-<ul class="socials" aria-label="Social links">
+<ul class="socials" aria-label={d.nav.social}>
   {
     socials.map((s) => (
       <li>
-        <a href={s.url} aria-label={s.label} title={s.label} rel="me noopener" target="_blank">
+        <a href={s.url} aria-label={`${s.label} ${d.nav.newTab}`} title={s.label} rel="me noopener" target="_blank">
           <Icon name={s.id} />
         </a>
       </li>

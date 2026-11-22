@@ -5,7 +5,7 @@
 import { next, rewrite } from '@vercel/functions';
 
 export const config = {
-  matcher: ['/', '/epk', '/terms', '/privacy', '/(de|fr|es|pt)', '/(de|fr|es|pt)/epk'],
+  matcher: ['/', '/epk', '/terms', '/privacy', '/accessibility', '/(de|fr|es|pt)', '/(de|fr|es|pt)/epk'],
 };
 
 export function markdownPathFor(pathname: string): string {
