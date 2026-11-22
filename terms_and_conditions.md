@@ -1,12 +1,12 @@
 # TERMS AND CONDITIONS
 
-Last updated: November 21, 2026
+Last updated: November 22, 2026
 
 ## AGREEMENT TO OUR LEGAL TERMS
 
-The website [djzivlevy.com](https://djzivlevy.com) (the "**Site**") is operated by Ziv Levy, a sole proprietor in Israel doing business as DJ Ziv Levy ("**we**," "**us**," "**our**"), at 3 HaShomer Street, Givataim 5322114, Israel.
+The website [djzivlevy.com](https://djzivlevy.com) (the "**Site**") is operated by Ziv Levy, a sole proprietor in Israel doing business as DJ Ziv Levy ("**we**," "**us**," "**our**").
 
-You can contact us by email at [levi.ziv@gmail.com](mailto:levi.ziv@gmail.com) or by mail to 3 HaShomer Street, Givataim 5322114, Israel.
+You can contact us by email at [levi.ziv@gmail.com](mailto:levi.ziv@gmail.com).
 
 These terms and conditions (the "**Legal Terms**") are a legally binding agreement between you and DJ Ziv Levy concerning your access to and use of the Site. By accessing the Site, you confirm that you have read, understood, and agreed to be bound by these Legal Terms. IF YOU DO NOT AGREE WITH THESE LEGAL TERMS, PLEASE DO NOT USE THE SITE.
 
@@ -107,10 +107,4 @@ These Legal Terms, together with our [Privacy Notice](https://djzivlevy.com/priv
 
 ## 14. CONTACT US
 
-To resolve a complaint or for any questions about these Legal Terms or the Site, please contact us at:
-
-DJ Ziv Levy  
-3 HaShomer Street  
-Givataim 5322114  
-Israel  
-[levi.ziv@gmail.com](mailto:levi.ziv@gmail.com)
+To resolve a complaint or for any questions about these Legal Terms or the Site, please email us at [levi.ziv@gmail.com](mailto:levi.ziv@gmail.com).

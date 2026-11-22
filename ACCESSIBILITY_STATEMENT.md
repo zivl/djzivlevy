@@ -48,9 +48,7 @@ We check the Site with automated accessibility testing (axe-core), keyboard-only
 If you have trouble using any part of the Site, or have suggestions for improving its accessibility, please contact our accessibility coordinator. It helps if you include the page address, a description of the problem, and the browser and assistive technology you were using. We will do our best to reply promptly and to fix the problem.
 
 **Accessibility coordinator:** Ziv Levy  
-**Email:** [levi.ziv@gmail.com](mailto:levi.ziv@gmail.com)  
-**Phone / WhatsApp:** [+972 54-744-2720](https://api.whatsapp.com/send?phone=972547442720)  
-**Mail:** DJ Ziv Levy, 3 HaShomer Street, Givataim 5322114, Israel
+**Email:** [levi.ziv@gmail.com](mailto:levi.ziv@gmail.com)
 
 ## 6. HEBREW SUMMARY
 
@@ -68,11 +66,7 @@ If you have trouble using any part of the Site, or have suggestions for improvin
 
 **מגבלות ידועות:** נגני YouTube ו-Spotify והאתרים החיצוניים שהאתר מקשר אליהם אינם בשליטתנו. סרטוני הסטים הם מוזיקה ללא דיבור ואין בהם כתוביות. האתר זמין באנגלית, גרמנית, צרפתית, ספרדית ופורטוגזית, ואינו זמין בעברית.
 
-**נתקלתם בבעיית נגישות?** פנו לרכז הנגישות, זיו לוי:
-
-- דוא"ל: [levi.ziv@gmail.com](mailto:levi.ziv@gmail.com)
-- טלפון / WhatsApp: <bdi>[054-744-2720](https://api.whatsapp.com/send?phone=972547442720)</bdi>
-- דואר: רחוב השומר 3, גבעתיים 5322114
+**נתקלתם בבעיית נגישות?** פנו לרכז הנגישות, זיו לוי, בדוא"ל: [levi.ziv@gmail.com](mailto:levi.ziv@gmail.com)
 
 ההצהרה עודכנה לאחרונה ב-22 בנובמבר 2026.
 

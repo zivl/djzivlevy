@@ -115,9 +115,4 @@ We may update this Privacy Notice from time to time. The updated version will be
 
 ## 11. HOW TO CONTACT US
 
-If you have questions about this notice or how we handle your information, email us at [levi.ziv@gmail.com](mailto:levi.ziv@gmail.com) or write to:
-
-DJ Ziv Levy  
-3 HaShomer Street  
-Givataim 5322114  
-Israel
+If you have questions about this notice or how we handle your information, email us at [levi.ziv@gmail.com](mailto:levi.ziv@gmail.com).
