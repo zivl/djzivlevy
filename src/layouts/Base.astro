@@ -4,6 +4,7 @@ import '@fontsource/montserrat/600.css';
 import '@fontsource/montserrat/700.css';
 import '../styles/global.css';
 import Analytics from '@vercel/analytics/astro';
+import SpeedInsights from '@vercel/speed-insights/astro';
 import { profile } from '../data/profile';
 import { LOCALES, absoluteUrl, localizePath, t, type Locale } from '../i18n/utils';
 
@@ -99,6 +100,8 @@ const robots = noindex ? 'noindex, follow' : 'index, follow, max-image-preview:l
     <a class="skip-link" href="#main">{d.nav.skip}</a>
     <slot />
     <Analytics />
+    {/* group by page template (e.g. '/epk' for all languages); the default would use the build file name '/epk.html' */}
+    <SpeedInsights route={path} />
     <script>
       import '../scripts/site.ts';
     </script>

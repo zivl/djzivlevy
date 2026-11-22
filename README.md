@@ -2,7 +2,7 @@
 
 The official website of DJ Ziv Levy: a link-in-bio page and an electronic press kit (EPK) in five languages, built for search engines and AI agents as well as people.
 
-- **Stack:** [Astro](https://astro.build) (static output), hosted on Vercel, with Vercel Web Analytics (cookieless).
+- **Stack:** [Astro](https://astro.build) (static output), hosted on Vercel, with Vercel Web Analytics and Speed Insights (both cookieless).
 - **Languages:** English (`/`), German (`/de`), French (`/fr`), Spanish (`/es`), Portuguese (`/pt`).
 - **Pages:** `/` links, `/epk` press kit, `/terms`, `/privacy`.
 
@@ -67,7 +67,7 @@ curl -o src/assets/videos/<id>.jpg https://i.ytimg.com/vi/<id>/hqdefault.jpg
 
 ## Launch checklist (moving off Wix)
 
-1. **Vercel:** import this GitHub repo (Astro is detected automatically) and check the `*.vercel.app` preview. Then go to Project → Analytics and enable **Web Analytics**.
+1. **Vercel:** import this GitHub repo (Astro is detected automatically) and check the `*.vercel.app` preview. Then go to Project → Analytics and enable **Web Analytics**, and Project → Speed Insights and enable **Speed Insights**.
 2. **Vercel → Settings → Domains:** add `djzivlevy.com`, `www.djzivlevy.com` and `iam.djzivlevy.com`.
 3. **Wix → Domains → djzivlevy.com:**
    - Disconnect the domain from the Wix site. It stays registered at Wix.
