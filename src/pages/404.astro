@@ -1,0 +1,76 @@
+---
+import Footer from '../components/Footer.astro';
+import { LOCALES, localizePath, t } from '../i18n/utils';
+import Base from '../layouts/Base.astro';
+---
+
+<Base lang="en" path="/404" title="Page not found – DJ Ziv Levy" description="This page doesn’t exist." translated={false} noindex>
+  <main id="main" class="nf">
+    <p class="code">404</p>
+    <h1>This track isn’t in the set.</h1>
+    <p>The page you’re looking for doesn’t exist. Try one of these:</p>
+    <div class="actions">
+      <a class="btn btn-primary" href="/">DJ Ziv Levy – Links</a>
+      <a class="btn" href="/epk">Press Kit</a>
+    </div>
+    <ul class="langs">
+      {
+        LOCALES.filter((l) => l !== 'en').map((l) => (
+          <li>
+            <a href={localizePath('/', l)} hreflang={l} lang={l}>
+              {t(l).langName}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </main>
+  <Footer lang="en" />
+</Base>
+
+<style>
+  .nf {
+    display: grid;
+    justify-items: center;
+    gap: 14px;
+    max-width: 560px;
+    margin: 0 auto;
+    padding: 18vh var(--gutter) 24px;
+    text-align: center;
+    color: var(--muted);
+  }
+
+  .code {
+    font-size: 4rem;
+    font-weight: 700;
+    background: var(--accent);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    line-height: 1;
+  }
+
+  h1 {
+    color: var(--text);
+    font-size: 1.5rem;
+  }
+
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 8px;
+  }
+
+  .langs {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 6px 16px;
+    list-style: none;
+    padding: 0;
+    margin: 12px 0 0;
+    font-size: 0.9rem;
+  }
+</style>

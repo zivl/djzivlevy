@@ -1,0 +1,31 @@
+{
+  "name": "djzivlevy",
+  "type": "module",
+  "version": "1.0.0",
+  "private": true,
+  "engines": {
+    "node": "24.x"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "check": "astro check",
+    "check:links": "node scripts/check-links.mjs",
+    "indexnow": "node scripts/indexnow.mjs"
+  },
+  "dependencies": {
+    "@astrojs/markdown-remark": "7.3.6",
+    "@astrojs/sitemap": "3.7.4",
+    "@fontsource/montserrat": "5.3.0",
+    "@vercel/analytics": "2.0.1",
+    "@vercel/functions": "3.11.0",
+    "astro": "7.4.7"
+  },
+  "devDependencies": {
+    "@astrojs/check": "0.9.12",
+    "simple-icons": "16.36.0",
+    "typescript": "6.0.3"
+  }
+}

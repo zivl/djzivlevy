@@ -1,0 +1,88 @@
+---
+// Layout for the English-only legal pages rendered from the repo's Markdown files.
+import Footer from '../components/Footer.astro';
+import Icon from '../components/Icon.astro';
+import { profile } from '../data/profile';
+import Base from './Base.astro';
+
+interface Props {
+  path: string;
+  title: string;
+  description: string;
+}
+
+const { path, title, description } = Astro.props;
+---
+
+<Base lang="en" path={path} title={`${title} – ${profile.name}`} description={description} translated={false} markdown={`${path}.md`}>
+  <header class="topbar">
+    <a class="back" href="/"><Icon name="arrowLeft" /> {profile.name}</a>
+  </header>
+  <main id="main" class="prose">
+    <slot />
+  </main>
+  <Footer lang="en" />
+</Base>
+
+<style>
+  .topbar {
+    max-width: 760px;
+    margin-inline: auto;
+    padding: 16px var(--gutter) 0;
+  }
+
+  .back {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    min-height: 40px;
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  .back :global(svg) {
+    width: 18px;
+    height: 18px;
+  }
+
+  .prose {
+    max-width: 760px;
+    margin-inline: auto;
+    padding: 16px var(--gutter) 40px;
+    color: var(--muted);
+    overflow-wrap: anywhere;
+  }
+
+  .prose :global(h1) {
+    color: var(--text);
+    font-size: clamp(1.6rem, 5vw, 2.2rem);
+    margin: 16px 0 12px;
+  }
+
+  .prose :global(h2) {
+    color: var(--text);
+    font-size: 1.15rem;
+    margin: 36px 0 10px;
+    scroll-margin-top: 16px;
+  }
+
+  .prose :global(h3) {
+    color: var(--text);
+    font-size: 1rem;
+    margin: 22px 0 8px;
+  }
+
+  .prose :global(p),
+  .prose :global(ul),
+  .prose :global(ol) {
+    margin: 0 0 12px;
+  }
+
+  .prose :global(strong) {
+    color: var(--text);
+  }
+
+  .prose :global(a) {
+    color: var(--text);
+  }
+</style>

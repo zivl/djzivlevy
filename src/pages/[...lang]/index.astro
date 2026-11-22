@@ -1,0 +1,210 @@
+---
+import { Image, Picture } from 'astro:assets';
+import avatar from '../../assets/avatar.jpg';
+import heroCrowd from '../../assets/hero-crowd.jpg';
+import Footer from '../../components/Footer.astro';
+import Gigs from '../../components/Gigs.astro';
+import Icon from '../../components/Icon.astro';
+import MusicSection from '../../components/MusicSection.astro';
+import SocialIcons from '../../components/SocialIcons.astro';
+import VideoGrid from '../../components/VideoGrid.astro';
+import { upcomingGigs } from '../../data/gigs';
+import { profile } from '../../data/profile';
+import { videos } from '../../data/videos';
+import { absoluteUrl, localeStaticPaths, localizePath, markdownPath, t, type Locale } from '../../i18n/utils';
+import Base from '../../layouts/Base.astro';
+import { artistNode, eventNode, graph, videoNode, webPageNode, websiteNode } from '../../lib/jsonld';
+
+export const getStaticPaths = localeStaticPaths;
+
+interface Props {
+  lang: Locale;
+}
+
+const { lang } = Astro.props;
+const d = t(lang);
+const path = '/';
+const ogImage = absoluteUrl('/og/home.jpg');
+
+const jsonld = graph([
+  websiteNode(lang),
+  webPageNode({ lang, path, title: d.meta.home.title, description: d.meta.home.description, type: 'ProfilePage' }),
+  artistNode(lang, absoluteUrl('/og/portrait.jpg')),
+  ...videos.map(videoNode),
+  ...upcomingGigs().map((g) => eventNode(g, ogImage)),
+]);
+---
+
+<Base
+  lang={lang}
+  path={path}
+  title={d.meta.home.title}
+  description={d.meta.home.description}
+  ogImage="/og/home.jpg"
+  jsonld={jsonld}
+  markdown={markdownPath(path, lang)}
+>
+  <div class="page">
+    <main id="main" class="card">
+      <header class="hero">
+        <Picture
+          src={heroCrowd}
+          alt=""
+          formats={['avif', 'webp']}
+          widths={[480, 960]}
+          sizes="(max-width: 520px) 100vw, 480px"
+          priority
+          class="hero-bg"
+        />
+        <div class="hero-content">
+          <Image
+            src={avatar}
+            alt={d.gallery.alts.portrait}
+            width={208}
+            loading="eager"
+            class="avatar"
+          />
+          <h1>{profile.name}</h1>
+          <p class="tagline">{d.tagline}</p>
+          <p class="genres"><span>{d.specializing}:</span> {profile.genres.join(', ')}</p>
+          <SocialIcons />
+        </div>
+      </header>
+
+      <div class="body">
+        <p class="intro">{d.intro}</p>
+
+        <div class="ctas">
+          <a class="btn btn-primary btn-block" href={profile.contact.whatsappUrl} target="_blank" rel="noopener">
+            <Icon name="whatsapp" />
+            {d.cta.book}
+          </a>
+          <a class="btn btn-block" href={localizePath('/epk', lang)}>{d.cta.pressKit}</a>
+        </div>
+
+        <Gigs lang={lang} hideWhenEmpty />
+        <MusicSection lang={lang} />
+
+        <section class="section" id="sets" aria-labelledby="sets-title">
+          <h2 id="sets-title" class="section-title">{d.sections.sets}</h2>
+          <VideoGrid videos={videos} lang={lang} />
+        </section>
+
+        <section class="section">
+          <a class="btn btn-block" href={localizePath('/epk', lang)}>{d.cta.pressKit}</a>
+        </section>
+      </div>
+    </main>
+    <Footer lang={lang} path={path} />
+  </div>
+</Base>
+
+<style>
+  .page {
+    padding: clamp(0px, 4vw, 40px) var(--gutter) 0;
+  }
+
+  .card {
+    max-width: 520px;
+    margin-inline: auto;
+    border-radius: var(--radius);
+    overflow: hidden;
+    background: var(--bg);
+    box-shadow: var(--shadow);
+    border: 1px solid var(--line);
+  }
+
+  @media (max-width: 560px) {
+    .page {
+      padding-inline: 0;
+    }
+
+    .card {
+      border-radius: 0;
+      border-inline: 0;
+      border-top: 0;
+    }
+  }
+
+  .hero {
+    position: relative;
+    isolation: isolate;
+    padding: 150px var(--gutter) 24px;
+    text-align: center;
+  }
+
+  .hero :global(.hero-bg) {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 30%;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(180deg, rgb(5 0 30 / 0) 0%, rgb(5 0 30 / 0.55) 40%, var(--bg) 88%);
+  }
+
+  .hero-content {
+    display: grid;
+    justify-items: center;
+    gap: 10px;
+  }
+
+  .hero :global(.avatar) {
+    width: 104px;
+    height: 104px;
+    object-fit: cover;
+    object-position: 39% 31%;
+    border-radius: 50%;
+    border: 3px solid var(--bg);
+    box-shadow: 0 0 0 2px var(--pink), 0 12px 40px -8px rgb(255 46 110 / 0.6);
+  }
+
+  h1 {
+    font-size: clamp(1.6rem, 6vw, 2rem);
+    font-weight: 700;
+    margin-top: 4px;
+  }
+
+  .tagline {
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--pink);
+  }
+
+  .genres {
+    max-width: 36ch;
+    color: var(--muted);
+    font-size: 0.88rem;
+    line-height: 1.5;
+  }
+
+  .genres span {
+    color: var(--text);
+  }
+
+  .body {
+    padding: 0 var(--gutter) 8px;
+  }
+
+  .intro {
+    text-align: center;
+    color: var(--muted);
+    padding-block: 8px 24px;
+  }
+
+  .ctas {
+    display: grid;
+    gap: 10px;
+    padding-bottom: 32px;
+  }
+</style>

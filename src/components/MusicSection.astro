@@ -1,0 +1,133 @@
+---
+import { music } from '../data/music';
+import { fill, t, type Locale } from '../i18n/utils';
+import Icon, { type IconName } from './Icon.astro';
+
+interface Props {
+  lang: Locale;
+  /** Left-align the heading (press kit layout). */
+  alignStart?: boolean;
+}
+
+const { lang, alignStart = false } = Astro.props;
+const d = t(lang);
+
+interface Platform {
+  icon: IconName;
+  label: string;
+  url: string;
+}
+
+const allPlatforms: Platform[] = [
+  { icon: 'spotify', label: 'Spotify', url: music.spotifyArtistUrl },
+  { icon: 'appleMusic', label: 'Apple Music', url: music.appleMusicUrl },
+  { icon: 'tidal', label: 'TIDAL', url: music.tidalUrl },
+  { icon: 'youtube', label: 'YouTube', url: music.youtubeChannel },
+];
+const platforms = allPlatforms.filter((p) => p.url !== '');
+---
+
+<section class="section" id="music" aria-labelledby="music-title">
+  <h2 id="music-title" class:list={['section-title', { start: alignStart }]}>{d.sections.music}</h2>
+  <p class:list={['lead', { start: alignStart }]}>{d.sections.musicLead}</p>
+
+  <div class="player">
+    <a
+      class="facade"
+      href={music.spotifyArtistUrl}
+      data-embed={music.spotifyEmbedUrl}
+      data-title="Spotify – DJ Ziv Levy"
+      data-allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+    >
+      <Icon name="spotify" class="brand" />
+      <span class="load">{d.embed.load}</span>
+      <span class="notice">{fill(d.embed.notice, { platform: 'Spotify' })}</span>
+    </a>
+  </div>
+
+  <ul class="platforms">
+    {
+      platforms.map((p) => (
+        <li>
+          <a class="btn btn-block" href={p.url} target="_blank" rel="noopener">
+            <Icon name={p.icon} />
+            <span class="visually-hidden">{d.music.listenOn}{' '}</span>
+            <span>{p.label}</span>
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</section>
+
+<style>
+  .player {
+    position: relative;
+    height: 152px;
+    border-radius: var(--radius);
+    overflow: hidden;
+    background: linear-gradient(160deg, #1a1450, #0b0533);
+    border: 1px solid var(--line);
+    margin-bottom: 16px;
+  }
+
+  .facade {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto auto;
+    align-content: center;
+    align-items: center;
+    gap: 8px 18px;
+    padding: 20px 24px;
+    text-decoration: none;
+  }
+
+  .facade :global(.brand) {
+    grid-row: span 2;
+  }
+
+  .facade :global(.brand) {
+    width: 56px;
+    height: 56px;
+    color: #1ed760;
+    transition: transform 0.3s ease;
+  }
+
+  .facade:hover :global(.brand) {
+    transform: scale(1.08);
+  }
+
+  .load {
+    justify-self: start;
+    padding: 10px 22px;
+    border-radius: 999px;
+    background: #fff;
+    color: #000;
+    font-weight: 700;
+  }
+
+  .notice {
+    color: var(--dim);
+    font-size: 0.75rem;
+    line-height: 1.4;
+  }
+
+  .player :global(iframe) {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+
+  .platforms {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 140px), 1fr));
+    gap: 10px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+</style>

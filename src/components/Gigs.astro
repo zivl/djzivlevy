@@ -1,0 +1,169 @@
+---
+import { gigStartIso, pastGigs, upcomingGigs, type Gig } from '../data/gigs';
+import { formatGigDate, t, type Locale } from '../i18n/utils';
+import Icon from './Icon.astro';
+
+interface Props {
+  lang: Locale;
+  /** Also list recent past gigs (press kit). */
+  includePast?: boolean;
+  /** Render nothing when there are no upcoming gigs (link page). */
+  hideWhenEmpty?: boolean;
+  /** Left-align the heading (press kit layout). */
+  alignStart?: boolean;
+}
+
+const { lang, includePast = false, hideWhenEmpty = false, alignStart = false } = Astro.props;
+const d = t(lang);
+const upcoming = upcomingGigs();
+const past = includePast ? pastGigs() : [];
+const regions = new Intl.DisplayNames([d.intl], { type: 'region' });
+const place = (g: Gig) => [g.eventName ? g.venue : undefined, g.city, regions.of(g.country)].filter(Boolean).join(' · ');
+const show = !(hideWhenEmpty && upcoming.length === 0);
+---
+
+{
+  show && (
+    <section class="section" id="gigs" aria-labelledby="gigs-title">
+      <h2 id="gigs-title" class:list={['section-title', { start: alignStart }]}>
+        {d.sections.gigs}
+      </h2>
+      <ul class="gigs" data-gig-list>
+        {upcoming.map((g) => (
+          <li class="gig" data-gig-date={g.date}>
+            <time datetime={gigStartIso(g)}>
+              {formatGigDate(g.date, lang)}
+              {g.time && <span class="time">{g.time}</span>}
+            </time>
+            <div class="what">
+              <strong>{g.eventName ?? g.venue}</strong>
+              <span>{place(g)}</span>
+            </div>
+            {g.ticketUrl && (
+              <a class="btn tickets" href={g.ticketUrl} target="_blank" rel="noopener">
+                <Icon name="ticket" />
+                {d.gigs.tickets}
+              </a>
+            )}
+          </li>
+        ))}
+      </ul>
+      <p class="empty" data-gig-empty hidden={upcoming.length > 0}>
+        {d.sections.noGigs}
+      </p>
+      {upcoming.length > 0 && (
+        <a class="calendar" href="/gigs.ics">
+          <Icon name="calendar" />
+          {d.gigs.calendar}
+        </a>
+      )}
+      {past.length > 0 && (
+        <>
+          <h3 class="past-title">{d.sections.pastGigs}</h3>
+          <ul class="gigs past">
+            {past.map((g) => (
+              <li class="gig">
+                <time datetime={g.date}>{formatGigDate(g.date, lang)}</time>
+                <div class="what">
+                  <strong>{g.eventName ?? g.venue}</strong>
+                  <span>{place(g)}</span>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </>
+      )}
+    </section>
+  )
+}
+
+<style>
+  .gigs {
+    display: grid;
+    gap: 10px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .gig {
+    display: grid;
+    grid-template-columns: minmax(7.5rem, auto) 1fr auto;
+    align-items: center;
+    gap: 6px 16px;
+    padding: 14px 16px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-sm);
+    background: rgb(255 255 255 / 0.03);
+  }
+
+  @media (max-width: 480px) {
+    .gig {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  time {
+    font-weight: 700;
+    color: var(--pink);
+    font-size: 0.9rem;
+  }
+
+  .time {
+    margin-inline-start: 0.5em;
+    color: var(--muted);
+  }
+
+  .what {
+    display: grid;
+  }
+
+  .what span {
+    color: var(--muted);
+    font-size: 0.88rem;
+  }
+
+  .tickets {
+    min-height: 40px;
+    padding: 0.4em 1em;
+    font-size: 0.85rem;
+  }
+
+  .empty {
+    text-align: center;
+  }
+
+  .start ~ .empty {
+    text-align: start;
+    color: var(--muted);
+  }
+
+  .calendar {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 14px;
+    color: var(--muted);
+    font-size: 0.88rem;
+  }
+
+  .calendar :global(svg) {
+    width: 18px;
+    height: 18px;
+  }
+
+  .past-title {
+    margin: 28px 0 12px;
+    font-size: 1rem;
+    color: var(--muted);
+  }
+
+  .past .gig {
+    opacity: 0.75;
+    grid-template-columns: minmax(7.5rem, auto) 1fr;
+  }
+
+  .past time {
+    color: var(--muted);
+  }
+</style>
