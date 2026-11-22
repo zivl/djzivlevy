@@ -1,6 +1,6 @@
 # PRIVACY NOTICE
 
-Last updated: November 21, 2026
+Last updated: November 22, 2026
 
 This Privacy Notice explains how Ziv Levy, a sole proprietor in Israel doing business as DJ Ziv Levy ("**we**," "**us**," or "**our**"), collects and uses information when you visit [djzivlevy.com](https://djzivlevy.com) (the "**Site**") or contact us.
 
@@ -53,6 +53,8 @@ Cookies are small text files stored on your device by your browser.
 
 **Analytics.** We use Vercel Web Analytics to understand how visitors use the Site, for example which pages are viewed, the referring website, the country or city, and the browser and device type. It does not use cookies and does not collect personal identifiers that track you across websites. Visitors are counted using a hash of the incoming request, and that session information is discarded automatically after 24 hours. We only see aggregated statistics. For details, see [Vercel Web Analytics privacy and compliance](https://vercel.com/docs/analytics/privacy-policy).
 
+**Performance measurement.** We use Vercel Speed Insights to measure how fast pages load for visitors. On each page load it records anonymous performance metrics (Core Web Vitals) together with the page address, network speed, browser, device type, operating system, and country. It does not use cookies and is not tied to any individual visitor or IP address. For details, see [Vercel Speed Insights privacy and compliance](https://vercel.com/docs/speed-insights/privacy-policy).
+
 **Embedded content.** The Site offers content from third-party platforms, such as music players and videos. These players are not loaded when you open a page: we show a preview image, and the third-party player loads only when you click it. Examples include:
 
 - SoundCloud
@@ -71,7 +73,7 @@ Once you load a player, or when you follow a link to one of these platforms, tha
 
 We share information only in these situations:
 
-- **Service providers.** Vercel, our hosting provider, processes information on our behalf to deliver, secure, and measure the Site, including through Vercel Web Analytics.
+- **Service providers.** Vercel, our hosting provider, processes information on our behalf to deliver, secure, and measure the Site, including through Vercel Web Analytics and Vercel Speed Insights.
 - **Legal requirements.** We may disclose information when required by law, court order, or a government authority, or when needed to protect our rights or the safety of others.
 
 ## 5. IS YOUR INFORMATION TRANSFERRED INTERNATIONALLY?
@@ -80,7 +82,7 @@ We are based in Israel. The Site is hosted by Vercel, which processes data on se
 
 ## 6. HOW LONG DO WE KEEP YOUR INFORMATION?
 
-- **Analytics data** is aggregated and kept according to Vercel's retention policy. Visitor session information is discarded after 24 hours.
+- **Analytics and performance data** is aggregated and kept according to Vercel's retention policy. Visitor session information is discarded after 24 hours.
 - **Emails and messages** you send us are kept for as long as needed to handle your inquiry and any resulting booking, and afterwards as required for tax, accounting, or legal purposes.
 
 When we no longer need personal information, we delete it.
