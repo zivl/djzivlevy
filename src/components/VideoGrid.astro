@@ -1,0 +1,148 @@
+---
+import { Image } from 'astro:assets';
+import { clockDuration, embedUrl, thumbnailFor, watchUrl, type Video } from '../data/videos';
+import { t, type Locale } from '../i18n/utils';
+import Icon from './Icon.astro';
+
+interface Props {
+  videos: Video[];
+  lang: Locale;
+  /** Grid columns on wide screens. */
+  columns?: 2 | 3;
+}
+
+const { videos, lang, columns = 2 } = Astro.props;
+const d = t(lang);
+const sizes = columns === 3 ? '(max-width: 640px) 100vw, 340px' : '(max-width: 520px) 50vw, 230px';
+---
+
+<ul class:list={['videos', `cols-${columns}`]}>
+  {
+    videos.map((v) => (
+      <li class="video">
+        <div class="frame">
+          <a
+            class="facade"
+            href={watchUrl(v.id)}
+            data-embed={`${embedUrl(v.id)}?autoplay=1&rel=0`}
+            data-title={v.title}
+            aria-label={`${d.video.play}: ${v.title}`}
+          >
+            <Image src={thumbnailFor(v.id)} alt="" widths={[320, 480, 640]} sizes={sizes} class="thumb" />
+            <span class="play">
+              <Icon name="play" />
+            </span>
+            <span class="duration">{clockDuration(v.seconds)}</span>
+          </a>
+        </div>
+        <h3 class="title">{v.title}</h3>
+      </li>
+    ))
+  }
+</ul>
+
+<style>
+  .videos {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px 16px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  @media (min-width: 720px) {
+    .cols-3 {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 360px) {
+    .videos {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .frame {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    background: #000;
+    border: 1px solid var(--line);
+  }
+
+  .facade {
+    position: absolute;
+    inset: 0;
+    display: block;
+  }
+
+  .thumb {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+  }
+
+  .facade:hover .thumb {
+    transform: scale(1.04);
+  }
+
+  .play {
+    position: absolute;
+    inset: 50% auto auto 50%;
+    translate: -50% -50%;
+    display: grid;
+    place-items: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: rgb(0 0 0 / 0.65);
+    border: 1px solid rgb(255 255 255 / 0.8);
+    transition: background 0.2s ease;
+  }
+
+  .facade:hover .play {
+    background: var(--pink);
+    border-color: var(--pink);
+  }
+
+  .play :global(svg) {
+    width: 22px;
+    height: 22px;
+    margin-left: 3px;
+  }
+
+  .duration {
+    position: absolute;
+    right: 6px;
+    bottom: 6px;
+    padding: 1px 6px;
+    border-radius: 4px;
+    background: rgb(0 0 0 / 0.75);
+    font-size: 0.72rem;
+    font-weight: 600;
+  }
+
+  .frame :global(iframe) {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+
+  .title {
+    margin-top: 10px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    line-height: 1.35;
+    text-align: center;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+</style>

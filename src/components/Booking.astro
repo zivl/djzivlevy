@@ -1,0 +1,43 @@
+---
+import { profile } from '../data/profile';
+import { t, type Locale } from '../i18n/utils';
+import Icon from './Icon.astro';
+
+interface Props {
+  lang: Locale;
+}
+
+const { lang } = Astro.props;
+const d = t(lang);
+---
+
+<section class="section booking" id="booking" aria-labelledby="booking-title">
+  <h2 id="booking-title" class="section-title">{d.sections.booking}</h2>
+  <p class="lead">{d.booking.lead}</p>
+  <div class="actions">
+    <a class="btn btn-primary" href={profile.contact.whatsappUrl} target="_blank" rel="noopener">
+      <Icon name="whatsapp" />
+      {d.booking.whatsapp}
+    </a>
+    <a class="btn" href={profile.contact.instagramDmUrl} target="_blank" rel="noopener">
+      <Icon name="instagram" />
+      {d.booking.instagram}
+    </a>
+    <a class="btn" href={`mailto:${profile.contact.email}`}>
+      <Icon name="email" />
+      {profile.contact.email}
+    </a>
+  </div>
+</section>
+
+<style>
+  .actions {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr));
+    gap: 12px;
+  }
+
+  .actions .btn {
+    overflow-wrap: anywhere;
+  }
+</style>

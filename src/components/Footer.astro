@@ -1,0 +1,45 @@
+---
+import { profile } from '../data/profile';
+import { t, type Locale } from '../i18n/utils';
+import LanguageSwitcher from './LanguageSwitcher.astro';
+
+interface Props {
+  lang: Locale;
+  /** Unlocalized page path, for the language switcher. Omit to hide the switcher. */
+  path?: string;
+}
+
+const { lang, path } = Astro.props;
+const d = t(lang);
+const englishNote = lang === 'en' ? '' : ` ${d.footer.englishOnly}`;
+---
+
+<footer class="footer">
+  {path && <LanguageSwitcher lang={lang} path={path} />}
+  <p>
+    {d.footer.policies}{' '}
+    <a href="/terms" hreflang="en">{d.footer.terms}{englishNote}</a>{' · '}
+    <a href="/privacy" hreflang="en">{d.footer.privacy}{englishNote}</a>
+  </p>
+  <p class="copy">© {new Date().getFullYear()} {profile.name}</p>
+</footer>
+
+<style>
+  .footer {
+    display: grid;
+    justify-items: center;
+    gap: 10px;
+    padding: 28px var(--gutter) calc(28px + env(safe-area-inset-bottom, 0px));
+    text-align: center;
+    font-size: 0.82rem;
+    color: var(--muted);
+  }
+
+  a {
+    color: var(--text);
+  }
+
+  .copy {
+    color: var(--dim);
+  }
+</style>

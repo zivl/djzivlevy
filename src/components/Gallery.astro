@@ -1,0 +1,177 @@
+---
+import { Image } from 'astro:assets';
+import { gallery } from '../data/gallery';
+import { t, type Locale } from '../i18n/utils';
+import Icon from './Icon.astro';
+
+interface Props {
+  lang: Locale;
+}
+
+const { lang } = Astro.props;
+const d = t(lang);
+---
+
+<section class="section" id="gallery" aria-labelledby="gallery-title">
+  <h2 id="gallery-title" class="section-title start">{d.sections.gallery}</h2>
+  <ul class="grid">
+    {
+      gallery.map((p) => (
+        <li class="item">
+          <a
+            class="photo"
+            href={p.image.src}
+            data-lightbox-item
+            data-alt={d.gallery.alts[p.altKey]}
+            data-file-name={p.fileName}
+            aria-label={`${d.gallery.open}: ${d.gallery.alts[p.altKey]}`}
+          >
+            <Image
+              src={p.image}
+              alt={d.gallery.alts[p.altKey]}
+              widths={[400, 800, 1200]}
+              sizes="(max-width: 640px) 100vw, (max-width: 1080px) 50vw, 360px"
+            />
+          </a>
+          {p.downloadable && (
+            <div class="meta">
+              <a class="download" href={p.image.src} download={p.fileName}>
+                <Icon name="download" />
+                {d.gallery.download}
+              </a>
+              {p.credit && <span class="credit">© {p.credit}</span>}
+            </div>
+          )}
+        </li>
+      ))
+    }
+  </ul>
+
+  <dialog class="lightbox" data-lightbox aria-label={d.sections.gallery}>
+    <form method="dialog">
+      <button class="close" aria-label={d.gallery.close}><Icon name="close" /></button>
+    </form>
+    <figure>
+      <img alt="" />
+      <figcaption></figcaption>
+    </figure>
+    <a class="btn" data-download href={gallery[0]?.image.src} download>
+      <Icon name="download" />
+      {d.gallery.download}
+    </a>
+  </dialog>
+</section>
+
+<style>
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 240px), 1fr));
+    gap: 14px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .photo {
+    display: block;
+    aspect-ratio: 4 / 5;
+    overflow: hidden;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--line);
+  }
+
+  .photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+  }
+
+  .photo:hover img {
+    transform: scale(1.04);
+  }
+
+  .meta {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+    margin-top: 8px;
+    font-size: 0.82rem;
+    color: var(--muted);
+  }
+
+  .download {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    min-height: 32px;
+    color: var(--text);
+    font-weight: 600;
+  }
+
+  .download :global(svg) {
+    width: 16px;
+    height: 16px;
+  }
+
+  .lightbox {
+    max-width: min(1100px, 94vw);
+    max-height: 94dvh;
+    padding: 16px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: var(--bg-2);
+    color: var(--text);
+  }
+
+  .lightbox::backdrop {
+    background: rgb(2 0 12 / 0.85);
+    backdrop-filter: blur(4px);
+  }
+
+  .lightbox[open] {
+    display: grid;
+    gap: 12px;
+    justify-items: center;
+  }
+
+  .lightbox form {
+    justify-self: end;
+  }
+
+  .close {
+    display: grid;
+    place-items: center;
+    width: 40px;
+    height: 40px;
+    border: 0;
+    border-radius: 50%;
+    background: rgb(255 255 255 / 0.1);
+    color: var(--text);
+    cursor: pointer;
+  }
+
+  .close :global(svg) {
+    width: 22px;
+    height: 22px;
+  }
+
+  figure {
+    margin: 0;
+    display: grid;
+    gap: 8px;
+  }
+
+  figure img {
+    max-height: 70dvh;
+    width: auto;
+    margin-inline: auto;
+    border-radius: var(--radius-sm);
+  }
+
+  figcaption {
+    color: var(--muted);
+    font-size: 0.85rem;
+    text-align: center;
+  }
+</style>

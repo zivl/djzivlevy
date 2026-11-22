@@ -1,0 +1,66 @@
+---
+import { logos } from '../data/gallery';
+import { t, type Locale } from '../i18n/utils';
+import Icon from './Icon.astro';
+
+interface Props {
+  lang: Locale;
+}
+
+const { lang } = Astro.props;
+const d = t(lang);
+---
+
+<section class="section" id="assets" aria-labelledby="assets-title">
+  <h2 id="assets-title" class="section-title start">{d.sections.assets}</h2>
+  <ul class="logos">
+    {
+      logos.map((l) => (
+        <li class:list={['logo', { dark: l.onDark }]}>
+          <img src={l.href} alt={d.assets[l.key]} width="592" height="592" loading="lazy" decoding="async" />
+          <a class="btn btn-block" href={l.href} download={l.fileName}>
+            <Icon name="download" />
+            {d.assets[l.key]} · PNG
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+  <p class="note"><a href="#gallery">{d.assets.photosNote}</a></p>
+</section>
+
+<style>
+  .logos {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 200px), 240px));
+    gap: 16px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .logo {
+    display: grid;
+    gap: 12px;
+  }
+
+  .logo img {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: contain;
+    padding: 18%;
+    border-radius: var(--radius-sm);
+    background: #fff;
+  }
+
+  .logo.dark img {
+    background: #000;
+    border: 1px solid var(--line);
+  }
+
+  .note {
+    margin-top: 14px;
+    color: var(--muted);
+    font-size: 0.9rem;
+  }
+</style>

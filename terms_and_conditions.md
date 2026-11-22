@@ -1,6 +1,6 @@
 # TERMS AND CONDITIONS
 
-Last updated: November 16, 2026
+Last updated: November 21, 2026
 
 ## AGREEMENT TO OUR LEGAL TERMS
 
@@ -71,7 +71,7 @@ The Site contains links to other websites and embedded content from third partie
 
 ## 5. PRIVACY
 
-Our [Privacy Notice](PRIVACY_NOTICE.md) explains how we handle information when you use the Site, and it forms part of these Legal Terms. The Site is built and hosted on the Wix platform, and your use of the Site is also subject to the terms and policies Wix applies to sites on its platform.
+Our [Privacy Notice](https://djzivlevy.com/privacy) explains how we handle information when you use the Site, and it forms part of these Legal Terms. The Site is hosted by Vercel Inc., and third-party content you load through the Site (such as YouTube or Spotify players) is subject to the terms of the platform that provides it.
 
 ## 6. CHANGES AND AVAILABILITY
 
@@ -103,7 +103,7 @@ These Legal Terms are governed by the laws of the State of Israel, without regar
 
 ## 13. MISCELLANEOUS
 
-These Legal Terms, together with our [Privacy Notice](PRIVACY_NOTICE.md), are the entire agreement between you and us about the Site. Our failure to enforce any provision is not a waiver of it. If any provision is found unlawful, void, or unenforceable, it is severed from these Legal Terms and the remaining provisions stay in full effect. Nothing in these Legal Terms creates any partnership, employment, or agency relationship between you and us.
+These Legal Terms, together with our [Privacy Notice](https://djzivlevy.com/privacy), are the entire agreement between you and us about the Site. Our failure to enforce any provision is not a waiver of it. If any provision is found unlawful, void, or unenforceable, it is severed from these Legal Terms and the remaining provisions stay in full effect. Nothing in these Legal Terms creates any partnership, employment, or agency relationship between you and us.
 
 ## 14. CONTACT US
 
