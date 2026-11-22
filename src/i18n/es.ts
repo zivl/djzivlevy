@@ -80,11 +80,12 @@ export const es: Dict = {
     instagram: 'DM en Instagram',
     email: 'Correo',
   },
-  nav: { links: 'Enlaces', language: 'Idioma', skip: 'Ir al contenido', home: 'Inicio' },
+  nav: { links: 'Enlaces', language: 'Idioma', skip: 'Ir al contenido', home: 'Inicio', newTab: '(se abre en una pestaña nueva)', social: 'Redes sociales' },
   footer: {
     policies: 'Al usar este sitio aceptas las siguientes políticas:',
     terms: 'Términos de uso',
     privacy: 'Política de privacidad',
+    accessibility: 'Declaración de accesibilidad',
     englishOnly: '(en inglés)',
   },
   faq: [

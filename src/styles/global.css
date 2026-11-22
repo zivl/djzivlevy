@@ -12,6 +12,9 @@
   --pink: #ff2e6e;
   --violet: #a52bff;
   --accent: linear-gradient(100deg, var(--pink), var(--violet));
+  /* Behind white text: both stops keep ≥ 4.5:1 contrast with #fff (WCAG 1.4.3). */
+  --pink-strong: #e0115f;
+  --accent-strong: linear-gradient(100deg, var(--pink-strong), var(--violet));
   --radius: 14px;
   --radius-sm: 8px;
   --gutter: clamp(16px, 4vw, 28px);
@@ -40,7 +43,8 @@ body {
   background-attachment: fixed;
   color: var(--text);
   font-family: var(--font);
-  font-size: 16px;
+  /* % (not px) so the visitor's browser font-size setting is respected */
+  font-size: 100%;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
 }
@@ -72,6 +76,12 @@ p {
   outline: 2px solid var(--pink);
   outline-offset: 3px;
   border-radius: 4px;
+}
+
+/* Click-to-load previews sit inside overflow:hidden frames, which would clip an outside ring. */
+[data-embed]:focus-visible {
+  outline-width: 3px;
+  outline-offset: -3px;
 }
 
 .skip-link {
@@ -159,13 +169,14 @@ p {
 
 .btn-primary {
   border-color: transparent;
-  background: var(--accent);
+  background: var(--accent-strong);
   box-shadow: 0 10px 30px -10px rgb(255 46 110 / 0.6);
 }
 
 .btn-primary:hover {
-  background: var(--accent);
-  filter: brightness(1.1);
+  background: var(--accent-strong);
+  /* glow instead of a brightness filter, which would lower the text contrast */
+  box-shadow: 0 10px 34px -6px rgb(255 46 110 / 0.85);
   border-color: transparent;
 }
 

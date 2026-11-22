@@ -67,7 +67,7 @@ const jsonld = graph([
           <h1>{profile.name}</h1>
           <p class="tagline">{d.tagline}</p>
           <p class="genres"><span>{d.specializing}:</span> {profile.genres.join(', ')}</p>
-          <SocialIcons />
+          <SocialIcons lang={lang} />
         </div>
       </header>
 
@@ -78,6 +78,7 @@ const jsonld = graph([
           <a class="btn btn-primary btn-block" href={profile.contact.whatsappUrl} target="_blank" rel="noopener">
             <Icon name="whatsapp" />
             {d.cta.book}
+            <span class="visually-hidden"> {d.nav.newTab}</span>
           </a>
           <a class="btn btn-block" href={localizePath('/epk', lang)}>{d.cta.pressKit}</a>
         </div>
