@@ -5,7 +5,7 @@ import { join } from 'node:path';
 
 const DIST = new URL('../dist/', import.meta.url).pathname;
 // Hosts that block bots or require a session; checked manually instead.
-const SKIP = [/^https:\/\/(www\.)?instagram\.com/, /^https:\/\/ig\.me\//, /^https:\/\/(www\.)?facebook\.com/, /^https:\/\/api\.whatsapp\.com/];
+const SKIP = [/^https:\/\/(www\.)?instagram\.com/, /^https:\/\/ig\.me\//, /^https:\/\/(www\.)?facebook\.com/, /^https:\/\/api\.whatsapp\.com/, /^https:\/\/tidal\.com\//];
 
 async function* files(dir) {
   for (const entry of await readdir(dir, { withFileTypes: true })) {
