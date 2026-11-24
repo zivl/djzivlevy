@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__claude-in-chrome__tabs_context_mcp",
+      "ClaudeInChromeDomain(localhost:4321)",
+      "ClaudeInChromeDomain(djzivlevy-git-speed-insights-ziv-levy-s-projects.vercel.app)",
+      "ClaudeInChromeDomain(tidal.com)"
+    ]
+  }
+}
