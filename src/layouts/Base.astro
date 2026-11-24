@@ -100,6 +100,10 @@ const robots = noindex ? 'noindex, follow' : 'index, follow, max-image-preview:l
     <a class="skip-link" href="#main">{d.nav.skip}</a>
     <slot />
     <Analytics />
+    {/* the component reports the build file name ('/epk.html') as the page; use the real URL instead. Must run before its (deferred) module script */}
+    <script is:inline>
+      document.querySelector('vercel-analytics')?.setAttribute('data-pathname', location.pathname);
+    </script>
     {/* group by page template (e.g. '/epk' for all languages); the default would use the build file name '/epk.html' */}
     <SpeedInsights route={path} />
     <script>
