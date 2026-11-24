@@ -1,6 +1,6 @@
 # ACCESSIBILITY STATEMENT
 
-Last updated: November 22, 2026
+Last updated: November 24, 2026
 
 DJ Ziv Levy ("**we**," "**us**," or "**our**") wants everyone to be able to use [djzivlevy.com](https://djzivlevy.com) (the "**Site**"), including people with disabilities. This statement describes how accessible the Site is, what we know is not yet accessible, and how to contact us about a problem.
 
@@ -35,13 +35,15 @@ The Site is **partially conformant**: the pages we build meet level AA, but some
 
 - **Third-party players and websites.** Once you start them, the YouTube and Spotify players are run by those companies. Links to Instagram, WhatsApp, Facebook, Apple Music, TIDAL and ticket sellers take you to websites we do not control. We cannot guarantee that this third-party content is accessible.
 - **DJ set videos.** The videos are recordings of continuous music with no speech, and they do not have captions or audio description. The title and length of each set are shown as text.
-- **Legal pages.** The Terms of Use, the Privacy Policy and this statement are available in English only, with a Hebrew summary of this statement below.
+- **Legal pages.** The Terms of Use, the Privacy Policy, this statement and the accessibility test results are available in English only, with a Hebrew summary of this statement below.
 
 If any of this prevents you from getting information you need, contact us (see [section 5](#5-feedback-and-accessibility-coordinator)) and we will provide it in another way.
 
 ## 4. HOW WE TEST
 
 We check the Site with automated accessibility testing (axe-core), keyboard-only navigation, and browser zoom up to 200%, on desktop and mobile browsers. We check it again when we make significant changes.
+
+We also test the Site with [achecker.ca](https://achecker.ca/) against WCAG 2.2 level AA, for both mobile and desktop web. See the [accessibility test results](https://djzivlevy.com/accessibility-test-results).
 
 ## 5. FEEDBACK AND ACCESSIBILITY COORDINATOR
 
@@ -66,8 +68,10 @@ If you have trouble using any part of the Site, or have suggestions for improvin
 
 **מגבלות ידועות:** נגני YouTube ו-Spotify והאתרים החיצוניים שהאתר מקשר אליהם אינם בשליטתנו. סרטוני הסטים הם מוזיקה ללא דיבור ואין בהם כתוביות. האתר זמין באנגלית, גרמנית, צרפתית, ספרדית ופורטוגזית, ואינו זמין בעברית.
 
+**תוצאות בדיקות:** האתר נבדק בכלי achecker.ca לפי WCAG 2.2 ברמה AA, בנייד ובמחשב. [לתוצאות בדיקות הנגישות (באנגלית)](https://djzivlevy.com/accessibility-test-results)
+
 **נתקלתם בבעיית נגישות?** פנו לרכז הנגישות, זיו לוי, בדוא"ל: [levi.ziv@gmail.com](mailto:levi.ziv@gmail.com)
 
-ההצהרה עודכנה לאחרונה ב-22 בנובמבר 2026.
+ההצהרה עודכנה לאחרונה ב-24 בנובמבר 2026.
 
 </div>

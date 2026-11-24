@@ -4,7 +4,7 @@ The official website of DJ Ziv Levy: a link-in-bio page and an electronic press 
 
 - **Stack:** [Astro](https://astro.build) (static output), hosted on Vercel, with Vercel Web Analytics and Speed Insights (both cookieless).
 - **Languages:** English (`/`), German (`/de`), French (`/fr`), Spanish (`/es`), Portuguese (`/pt`).
-- **Pages:** `/` links, `/epk` press kit, `/terms`, `/privacy`, `/accessibility`.
+- **Pages:** `/` links, `/epk` press kit, `/terms`, `/privacy`, `/accessibility`, `/accessibility-test-results`.
 
 ## Develop
 
@@ -33,7 +33,7 @@ All content is data. Edit a file, push, and Vercel redeploys every page, Markdow
 | Gallery and press photos | `src/assets/gallery/` + `src/data/gallery.ts` |
 | Logos | `public/press/logos/` |
 | All text: bio, FAQ, headings, SEO titles and descriptions | `src/i18n/en.ts` (source), `de.ts`, `fr.ts`, `es.ts`, `pt.ts` |
-| Terms / Privacy / Accessibility | `terms_and_conditions.md`, `PRIVACY_NOTICE.md`, `ACCESSIBILITY_STATEMENT.md` (rendered at `/terms`, `/privacy`, `/accessibility`) |
+| Terms / Privacy / Accessibility | `terms_and_conditions.md`, `PRIVACY_NOTICE.md`, `ACCESSIBILITY_STATEMENT.md`, `ACCESSIBILITY_TEST_RESULTS.md` (rendered at `/terms`, `/privacy`, `/accessibility`, `/accessibility-test-results`); test screenshots in `src/assets/accessibility/` |
 
 The translations must have exactly the same keys as `en.ts`; a missing key fails the build.
 After changing the hero images or logo, run `node scripts/make-assets.mjs` to regenerate the social-share cards (`public/og/`) and favicons.
